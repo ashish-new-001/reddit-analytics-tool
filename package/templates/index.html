@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit Dashboard</title>
+</head>
+<body>
+    <h1>Reddit Dashboard</h1>
+    <form action="/results" method="post">
+        <label for="subreddits">Subreddits (comma-separated):</label><br>
+        <input type="text" id="subreddits" name="subreddits" placeholder="e.g., python, technology"><br><br>
+    
+        <label for="time_filter">Timeframe:</label><br>
+        <select id="time_filter" name="time_filter">
+            <option value="all">All</option>
+            <option value="year">Year</option>
+            <option value="month">Month</option>
+            <option value="week">Week</option>
+            <option value="day">Day</option>
+            <option value="hour">Hour</option>
+        </select><br><br>
+    
+        <label for="sort_by">Sort By:</label><br>
+        <select id="sort_by" name="sort_by">
+            <option value="score">Score</option>
+            <option value="comments">Comments</option>
+            <option value="subreddit">Subreddit</option>
+        </select><br><br>
+    
+        <label for="post_limit">Number of Posts:</label><br>
+        <input type="number" id="post_limit" name="post_limit" value="5" min="1"><br><br>
+    
+        <button type="submit">Fetch Posts</button>
+    </form>    
+</body>
+</html>

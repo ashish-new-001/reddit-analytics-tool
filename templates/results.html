@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit Dashboard - Results</title>
+</head>
+<body>
+    <h1>Results</h1>
+    <form action="/save" method="post">
+        <input type="hidden" name="posts" value='{{ posts | tojson }}'>
+        <label for="file_format">Save as:</label>
+        <select id="file_format" name="file_format">
+            <option value="json">JSON</option>
+            <option value="csv">CSV</option>
+        </select>
+        <button type="submit">Save</button>
+    </form>
+    <table border="1">
+        <tr>
+            <th>Subreddit</th>
+            <th>Title</th>
+            <th>Score</th>
+            <th>Comments</th>
+            <th>Sentiment</th>
+            <th>Link</th>
+        </tr>
+        {% for post in posts %}
+        <tr>
+            <td>{{ post.subreddit }}</td>
+            <td>{{ post.title }}</td>
+            <td>{{ post.score }}</td>
+            <td>{{ post.comments }}</td>
+            <td>{{ post.sentiment }}</td>
+            <td><a href="{{ post.link }}" target="_blank">Link</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/">Go Back</a>
+</body>
+</html>
